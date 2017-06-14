@@ -1,0 +1,19 @@
+{
+  "name": "fantinelbot",
+  "version": "1.0.0",
+  "description": "Simple bot for learning.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Matheus Fantinel (matfantinel@gmail.com)",
+  "license": "ISC",
+  "dependencies": {
+    "botbuilder": "^3.8.3",
+    "es6-promise": "^4.1.0",
+    "isomorphic-fetch": "^2.2.1",
+    "js-yaml": "^3.8.4",
+    "natural": "^0.5.1",
+    "restify": "^4.3.0"
+  }
+}
