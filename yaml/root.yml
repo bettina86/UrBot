@@ -1,0 +1,8 @@
+dialog:
+  message:
+    - Hello there!
+    - I am UrBot!
+    - I was built to become a generic, easy-to-configure bot!
+  event: respond
+  type: block
+  resultType: message

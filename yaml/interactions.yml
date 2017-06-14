@@ -1,0 +1,115 @@
+trust: 0.7
+interactions:  
+  - node: #salutation
+      name: salutation
+    event: respond
+    type: random
+    resultType: message
+    message:
+      - Hello there! How are you doing?
+      - Oh, hey there! Good to see you! What's up?
+    classifiers:
+      - hi
+      - hello
+      - hey
+      
+  - node: #howAreYou
+      name: howAreYou
+    event: respond
+    type: random
+    resultType: message
+    message:
+      - I'm feeling great, thanks! Fortunately, my source code doesn't include the sadness package. Hehe :D
+      - Much better now that you're here!
+    classifiers:
+      - how are you doing #NaturalNode is not understanding this one... Why?
+      - are you ok
+      - whats up
+    
+  - node: #salutationResponse
+      name: salutationResponse
+    event: respond
+    type: random
+    resultType: message
+    message:
+      - I'm glad!
+      - Cool!
+    classifiers:
+      - i am ok
+      - i am good
+      - im fine
+
+  - node: #about-urbot
+      name: about-urbot
+    event: respond
+    type: block
+    resultType: message
+    message:
+      - I am Urbot! As in "Your Bot".
+      - I was built to become a free, easily configurable chatbot service!
+      - This means that I'll eventually be able to be downloaded by anyone, and transformed into a specific chatbot for their product.
+      - The point is that with the power of YAML, I can become easily configurable, even by people that do not know programming!
+      - I am also open source, which means you can help making me better.
+      - I can talk about anything that you teach me in my interactions.yaml file, try it out! ;)
+    classifiers:
+      - who are you
+      - what do you do
+      - what can you do
+      - who is urbot
+      - what can i ask you about
+
+  - node: #numbers-fact
+      name: numbers-fact
+    event: prompt
+    type: fetchAPI
+    url: http://numbersapi.com/$value
+    repeat: true
+    resultType: herocard
+    resultArgs:
+      title: You asked me...
+      subtitle: And the result is...
+      image: http://lorempixel.com/300/250/technics/
+    message:
+      - Tell me a number you'd like to know more about!
+    classifiers:
+      - tell me a numbers fact
+      - do you like numbers?
+      - number trivia
+
+  - node: #year-fact
+      name: year-fact
+    event: prompt
+    type: fetchAPI
+    url: http://numbersapi.com/$value/year
+    resultType: message
+    repeat: true
+    message:
+      - Tell me a year you'd like to know more about!
+    classifiers:
+      - tell me a year fact
+      - years trivia
+      - what happened in year
+
+  - node: #math-fact
+      name: math-fact
+    event: prompt
+    type: fetchAPI
+    url: http://numbersapi.com/$value/math
+    resultType: message
+    repeat: true
+    message:
+      - Tell me a number you'd like to know more about... mathematically!
+    classifiers:
+      - tell me a math fact
+      - math trivia
+      - do you like math?
+    
+  - node: #error
+      name: error
+    event: respond
+    type: block      
+    resultType: message
+    message:
+      - Sorry, I'm still in training...
+      - I didn't understand what you said.
+      - Maybe we can try chatting about something else?
